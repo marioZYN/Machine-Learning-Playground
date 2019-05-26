@@ -60,7 +60,7 @@ class HMM():
 
         for t, yy in enumerate(y[1:]):
             # propagate forward
-            tmpMat = self._viterbi_partial_forward(pathScores[t])
+            tmpMat = self.viterbi_forward(pathScores[t])
             # the inferred state
             pathStates[t + 1] = np.argmax(tmpMat, 0)
             pathScores[t + 1] = np.max(tmpMat, 0) + np.log(yy)
